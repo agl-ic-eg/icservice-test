@@ -52,8 +52,9 @@ int main(void)
     while(isRunning) {
     	(void)ipcSendMessage(IPC_USAGE_TYPE_IC_SERVICE, (const void*)&g_dataIcService, sizeof(g_dataIcService));
 		
-    	usleep(100*1000);	//100 * 1000 usec
-    	g_dataIcService.spAnalogVal = g_dataIcService.spAnalogVal % 1000;
+    	usleep(20*1000);	//100 * 1000 usec
+    	g_dataIcService.spAnalogVal = g_dataIcService.spAnalogVal + 20;
+    	g_dataIcService.spAnalogVal = g_dataIcService.spAnalogVal % 10000;
     }
 
 end:
